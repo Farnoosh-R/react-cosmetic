@@ -1,0 +1,13 @@
+.btn-primary {
+    background-color: #008e56;
+    border-color: #008e56;
+}
+.btn-primary:hover {
+    background-color: #027e4d;
+    border-color: #027e4d;
+}
+:not(.btn-check)+.btn:active{
+    background-color: #027e4d;
+    border-color: #027e4d;
+
+}

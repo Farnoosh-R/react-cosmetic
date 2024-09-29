@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Home from './components/Home/Home';
+import Products from './components/Products/Products';
+import Aboutus from './components/Aboutus/Aboutus';
+import Contactus from './components/Contactus/Contactus';
+import ContexTheme from './components/Context/ContexTheme';
+import Theme from './components/Configs/Theme';
 
 function App() {
+const [activeTheme, setActiveTheme] = useState('green');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ContexTheme.Provider value={{theme: Theme[activeTheme], setActiveTheme}}>
+      <div className="App">
+      <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<Layout><Home /></Layout>}/>
+      <Route path='/products' element={<Layout><Products /></Layout>}/>
+      <Route path='/aboutus' element={<Layout><Aboutus /></Layout>}/>
+      <Route path='/contactus' element={<Layout><Contactus /></Layout>}/>
+      </Routes>
+      </BrowserRouter>
+      </div>
+      </ContexTheme.Provider>
   );
 }
 

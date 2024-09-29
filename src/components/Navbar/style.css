@@ -1,0 +1,13 @@
+.logo{
+    width: 100px;
+    margin-right: 50px;
+}
+.nav-link.active,.nav-link:hover{
+    color: #008e56!important;
+}
+.palet-box{
+    padding: 10px 10px;
+    margin: 0px 5px;
+    border: unset;
+    
+}
