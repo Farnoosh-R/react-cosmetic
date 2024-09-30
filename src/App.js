@@ -9,6 +9,7 @@ import Aboutus from './components/Aboutus/Aboutus';
 import Contactus from './components/Contactus/Contactus';
 import ContexTheme from './components/Context/ContexTheme';
 import Theme from './components/Configs/Theme';
+import Blog from './components/Blog/Blog';
 
 function App() {
 const [activeTheme, setActiveTheme] = useState('green');
@@ -22,6 +23,7 @@ const [activeTheme, setActiveTheme] = useState('green');
       <Route path='/products' element={<Layout><Products /></Layout>}/>
       <Route path='/aboutus' element={<Layout><Aboutus /></Layout>}/>
       <Route path='/contactus' element={<Layout><Contactus /></Layout>}/>
+      <Route path='/blog' element={<Layout><Blog /></Layout>}/>
       </Routes>
       </BrowserRouter>
       </div>

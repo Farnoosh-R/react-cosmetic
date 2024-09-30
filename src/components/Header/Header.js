@@ -22,6 +22,10 @@ const Header = () => {
         title = "Contact us";
      break;
 
+     case "/blog":
+        title = "Blog";
+     break;
+
     default:
       break;
   }
