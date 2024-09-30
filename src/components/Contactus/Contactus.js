@@ -42,7 +42,6 @@ const handleWelcome = () => {
 
     return(
         <div className="Contactus">
-        <h2 className="mb-5">Contact us</h2>
         <div className="form-contact w-50 mx-auto">
         <input onChange={(e) => handleChangeName(e.target.value)} className="form-control mb-3" type="text" placeholder="Name" />
         {reqname && <div className="text-danger">required</div>}

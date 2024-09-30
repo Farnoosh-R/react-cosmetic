@@ -18,7 +18,6 @@ const Products = () => {
 
     return(
         <div className="Products">
-        <h2 className="mb-5">Products</h2>
         <div className="row">
         {product.map((product) => {
             return(
