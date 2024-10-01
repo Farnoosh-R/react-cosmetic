@@ -35,6 +35,9 @@ return(
       <li className="nav-item">
       <Link className="nav-link" to="/blog">Blog</Link>
     </li>
+    <li className="nav-item">
+    <Link className="nav-link" to="/searchemoji">Search Emoji</Link>
+  </li>
       <li className="nav-item align-content-md-center theme-color">
       <span style={{color: themeContextValue.theme.color}}>0</span>
       <BsFillCartFill style={{color: themeContextValue.theme.color}} />

@@ -26,6 +26,10 @@ const Header = () => {
         title = "Blog";
      break;
 
+     case "/searchemoji":
+      title = "Search Emoji";
+   break;
+
     default:
       break;
   }
