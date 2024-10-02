@@ -1,0 +1,11 @@
+
+
+.ProductsItem{
+    opacity: 0;
+}
+
+.ProductsItem.visible{
+opacity: 1;
+transition-duration: 2s;
+transition-delay: 1s;
+}

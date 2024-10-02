@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import ProductsItem from "./ProductsItem";
 
+
+
 const Products = () => {
 
     const [product, setProduct] = useState([]);
 
     const getData = async () => {
-        const resProduct = await fetch('https://run.mocky.io/v3/e430d305-09dc-464c-9664-68362af0d394');
-        const product = await resProduct.json();
-        setProduct(product);
-    }
+        try {
+            const resProduct = await fetch('https://run.mocky.io/v3/e964b20f-f8e2-4e03-a6b1-f3f39ce00f48');
+            const product = await resProduct.json();
+            setProduct(product)
+        } catch (error) {
+            console.log(error)
+        }
+        }
 
     useEffect(() => {
-        getData();
-        console.log(product)
+            getData();
     }, [])
 
     return(

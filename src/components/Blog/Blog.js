@@ -12,7 +12,7 @@ const Blog = () => {
 
 const handleGetPosts = async () => {
 
-    const respost = await fetch('https://run.mocky.io/v3/a3ba3348-4035-4bf0-994a-2a89076a193e');
+    const respost = await fetch('https://run.mocky.io/v3/1f0016b1-7b26-489a-a856-3645382afb7d');
     const postData = await respost.json()
     setPost(postData);
 }

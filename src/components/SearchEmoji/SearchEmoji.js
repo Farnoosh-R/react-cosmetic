@@ -8,7 +8,7 @@ const SearchEmoji = () => {
     const [searchedEmoji, setSearchedEmoji] = useState('');
 
     const getEmoji = async () => {
-        const resEmoji = await fetch('https://run.mocky.io/v3/36cecf18-4019-4163-bd70-a1b50d85bed3');
+        const resEmoji = await fetch('https://run.mocky.io/v3/68a8487c-0962-40fb-8e8e-c58e7d53e126')
         const mog = await resEmoji.json()
         setEmoji(mog);
         console.log(emoji)
