@@ -7,5 +7,5 @@
 .ProductsItem.visible{
 opacity: 1;
 transition-duration: 2s;
-transition-delay: 1s;
+transition-delay: 0s;
 }

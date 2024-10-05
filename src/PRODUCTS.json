@@ -1,0 +1,34 @@
+[
+        {
+            "id": 1,
+            "title": "product1",
+            "price": 549,
+            "brand": "Apple",
+            "category": "smartphones",
+            "images": "https://i.postimg.cc/1z16dq67/p1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "product2",
+            "price": 649,
+            "brand": "Apple",
+            "category": "smartphones",
+            "images": "https://i.postimg.cc/vTKxtgbz/p2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "product3",
+            "price": 749,
+            "brand": "Apple",
+            "category": "smartphones",
+            "images": "https://i.postimg.cc/v82nsjfV/p3.jpg"
+        },
+        {
+            "id": 4,
+            "title": "product4",
+            "price": 849,
+            "brand": "Apple",
+            "category": "smartphones",
+            "images": "https://i.postimg.cc/GhZsByM3/p4.jpg"
+        }        
+]

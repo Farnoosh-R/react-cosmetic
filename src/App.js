@@ -11,6 +11,8 @@ import ContexTheme from './components/Context/ContexTheme';
 import Theme from './components/Configs/Theme';
 import Blog from './components/Blog/Blog';
 import SearchEmoji from './components/SearchEmoji/SearchEmoji';
+import ProductA from './components/Products/ProductA';
+import CharCounter from './components/CharCounter/CharCounter';
 
 function App() {
 const [activeTheme, setActiveTheme] = useState('green');
@@ -26,6 +28,8 @@ const [activeTheme, setActiveTheme] = useState('green');
       <Route path='/contactus' element={<Layout><Contactus /></Layout>}/>
       <Route path='/blog' element={<Layout><Blog /></Layout>}/>
       <Route path='/searchemoji' element={<Layout><SearchEmoji /></Layout>}/>
+      <Route path='/products/:id' element={<Layout><ProductA /></Layout>}/>
+      <Route path='/charcounter' element={<Layout><CharCounter /></Layout>}/>
       </Routes>
       </BrowserRouter>
       </div>
