@@ -1,11 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useContext, useReducer } from "react";
 import { useParams } from "react-router-dom";
+import Button from "../Button/Button";
+import ContexTheme from "../Context/ContexTheme";
+import ProductReducer from "./ProductReducer";
+import './style.css'
+import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md";
+
+
 
 
 const ProductA = () => {
 
     const [product, setProduct] = useState([]);
-    
+    const productItemRef = useRef(null);
+    const themeContextValue = useContext(ContexTheme);
+    const [state, dispatch] = useReducer(ProductReducer, {added: true})
 
     const getData = async () => {
      
@@ -19,30 +28,46 @@ const ProductA = () => {
         }
         
         useEffect(() => {
-            getData();
-            
+            getData(); 
+            productItemRef.current.classList.add('visible');
     }, [])
 
-    const {id} = useParams();
+    const { id } = useParams();
     console.log('param id', id)
     console.log(product)
     
 
-    const filterProduct = product.find((item) => item.id === id)
+    const filterProduct = product.find((item) => item.id === Number(id))
     console.log('filterProduct', filterProduct)
     
 
+    const handleAdded = () => {
+        if (state.added)   {
+           dispatch({
+               type: 'REMOVE_FROM_CART'
+           })
+        }else{
+           dispatch({
+               type: 'ADD_TO_CARD'
+           })
+        }
+       }
+
+
     return(
-        <div className="ProductA">
+        <div className="ProductA" ref={productItemRef}>
 
-        {product.map((p) => {
-            return(
-                <h2>{p.title}</h2>
-            )
-        })}
+        {filterProduct && 
+            <div>
+            <div className="box mb-4">
+            <img src={filterProduct.ads} />
+            <p className="product-title">{filterProduct.title}</p>
+            <p className="product-title text-success">{filterProduct.price}</p>
+            <Button handleClick={handleAdded} btnStyle={{backgroundColor: themeContextValue.theme.color, border: themeContextValue.theme.color}} btnContent={state.added ? <div className="d-flex"><MdShoppingCart /><div>Add to Cart</div></div> : <div className="d-flex"><MdRemoveShoppingCart /><div>Remove from Cart</div></div>}/>
+            </div>
+            </div>
+    }
 
-        
-        
         </div>
     )
 }
