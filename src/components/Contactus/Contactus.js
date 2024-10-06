@@ -2,11 +2,13 @@
 import React, { useContext, useState } from "react";
 import Button from "../Button/Button";
 import ContexTheme from "../Context/ContexTheme";
+import {validateEmail} from './../../Utils/validateEmail';
 
 const Contactus = () => {
 
     const [name, setName] = useState('')
     const [last, setLast] = useState('')
+    const [email, setEmail] = useState('')
     const [reqname, setReqname] = useState('')
     const [reqlast, setReqlast] = useState('')
     const themeContextValue = useContext(ContexTheme);
@@ -23,7 +25,18 @@ const handleChangeLast = (e) => {
     return last;
 }
 
+const handleValidate = (e) => {
+
+    if (validateEmail(e)){
+        setEmail(e)
+    }else{
+        console.log('email is not valid');
+    }
+}
+
 const handleWelcome = () => {
+
+    handleValidate();
 
     if (name == ''){
         setReqname(true)
@@ -35,8 +48,7 @@ const handleWelcome = () => {
         setReqname(false)
         setReqlast(false)
         alert(`welcome ${handleChangeName()} ${handleChangeLast()} to my shop`)
-    }
-    
+    }  
     
 }
 
@@ -47,8 +59,8 @@ const handleWelcome = () => {
         {reqname && <div className="text-danger">required</div>}
         <input onChange={(e) => handleChangeLast(e.target.value)} className="form-control mb-3" type="text" placeholder="Last name" />
         {reqlast && <div className="text-danger">required</div>}
-        <input className="form-control mb-3" type="text" placeholder="Email" />
-        <Button  btnStyle={{backgroundColor: themeContextValue.theme.color}} handleClick={handleWelcome} btnTitle={'Send'} />
+        <input onChange={(e) => handleValidate(e.target.value)} className="form-control mb-3" type="text" placeholder="Email" />
+        <Button  btnStyle={{backgroundColor: themeContextValue.theme.color}} handleClick={handleWelcome} btnContent={'Send'} />
         </div>
         </div>
     )

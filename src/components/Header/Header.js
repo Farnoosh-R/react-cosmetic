@@ -5,6 +5,8 @@ const Header = () => {
   let title = '';
   let location = useLocation();
 
+  if (location.pathname.includes('product')) title = 'shop';
+
   switch (location.pathname) {
     case "/":
         title = "Home";
@@ -29,6 +31,14 @@ const Header = () => {
      case "/searchemoji":
       title = "Search Emoji";
    break;
+
+   case "/charcounter":
+    title = "Char Counter";
+ break;
+
+ case "/cryptocurrency":
+  title = "Cryptocurrency List";
+break;
 
     default:
       break;
