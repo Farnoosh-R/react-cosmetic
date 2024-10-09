@@ -14,6 +14,7 @@ import SearchEmoji from './components/SearchEmoji/SearchEmoji';
 import ProductA from './components/Products/ProductA';
 import CharCounter from './components/CharCounter/CharCounter';
 import CryptocurrencyList from './components/CryptocurrencyList/CryptocurrencyList';
+import SlideShow from './components/SlideShow/SlideShow';
 
 function App() {
 const [activeTheme, setActiveTheme] = useState('green');
@@ -32,6 +33,7 @@ const [activeTheme, setActiveTheme] = useState('green');
       <Route path='/products/:id' element={<Layout><ProductA /></Layout>}/>
       <Route path='/charcounter' element={<Layout><CharCounter /></Layout>}/>
       <Route path='/cryptocurrency' element={<Layout><CryptocurrencyList /></Layout>}/>
+      <Route path='/slideshow' element={<Layout><SlideShow /></Layout>}/>
       </Routes>
       </BrowserRouter>
       </div>

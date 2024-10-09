@@ -40,6 +40,10 @@ const Header = () => {
   title = "Cryptocurrency List";
 break;
 
+case "/slideshow":
+  title = "Slide Show";
+break;
+
     default:
       break;
   }
