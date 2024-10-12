@@ -16,6 +16,7 @@ import CharCounter from './components/CharCounter/CharCounter';
 import CryptocurrencyList from './components/CryptocurrencyList/CryptocurrencyList';
 import SlideShow from './components/SlideShow/SlideShow';
 import TestAPI from './components/TestAPI/TestAPI';
+import CountDown from './components/CountDown/CountDown';
 
 function App() {
 const [activeTheme, setActiveTheme] = useState('green');
@@ -36,6 +37,7 @@ const [activeTheme, setActiveTheme] = useState('green');
       <Route path='/cryptocurrency' element={<Layout><CryptocurrencyList /></Layout>}/>
       <Route path='/slideshow' element={<Layout><SlideShow /></Layout>}/>
       <Route path='/test-api' element={<Layout><TestAPI /></Layout>}/>
+      <Route path='/count-down' element={<Layout><CountDown /></Layout>}/>
       </Routes>
       </BrowserRouter>
       </div>

@@ -44,6 +44,14 @@ case "/slideshow":
   title = "Slide Show";
 break;
 
+case "/test-api":
+  title = "Test API";
+break;
+
+case "/count-down":
+  title = "Count Down";
+break;
+
     default:
       break;
   }
