@@ -7,6 +7,23 @@ import './style.css'
 import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md";
 
 
+const API_URL = 'https://script.google.com/macros/s/AKfycbyQ41PX9mTmziMPQrn2ENAeMMi5EgS91MqDdWuywLk3m5Ls3jVSCzyrSKnIEe0Z3-Kf/exec';
+
+const getData = async () => {
+    try {
+        const res = await fetch(API_URL)
+        if (res){
+            const { data } = await res.json()
+            return data;
+        }else{
+            return 'there is no data'
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 
 
 const ProductA = () => {
@@ -15,22 +32,27 @@ const ProductA = () => {
     const productItemRef = useRef(null);
     const themeContextValue = useContext(ContexTheme);
     const [state, dispatch] = useReducer(ProductReducer, {added: true})
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-    const getData = async () => {
-     
-        try {
-            const resProduct = await fetch('https://run.mocky.io/v3/e964b20f-f8e2-4e03-a6b1-f3f39ce00f48');
-            const product = await resProduct.json();
-            setProduct(product)
-        } catch (error) {
-            console.log(error)
+
+    useEffect(() => {
+        const showData = async () => {
+            const result = await getData()
+            if (result) {
+                setProduct(result)
+                setLoading(false)
+            }else{
+                setLoading(false)
+                setError(true)
+            }
         }
-        }
-        
-        useEffect(() => {
-            getData(); 
-            productItemRef.current.classList.add('visible');
-    }, [])
+
+        showData();
+    
+    })
+
+
 
     const { id } = useParams();
     console.log('param id', id)
@@ -56,11 +78,12 @@ const ProductA = () => {
 
     return(
         <div className="ProductA" ref={productItemRef}>
-
+        {loading && <div>loading</div>}
+        {error && <div>error</div>}
         {filterProduct && 
             <div>
             <div className="box mb-4">
-            <img src={filterProduct.ads} />
+            <img src={filterProduct.imgsrc} />
             <p className="product-title">{filterProduct.title}</p>
             <p className="product-title text-success">{filterProduct.price}</p>
             <Button handleClick={handleAdded} btnStyle={{backgroundColor: themeContextValue.theme.color, border: themeContextValue.theme.color}} btnContent={state.added ? <div className="d-flex"><MdShoppingCart /><div>Add to Cart</div></div> : <div className="d-flex"><MdRemoveShoppingCart /><div>Remove from Cart</div></div>}/>

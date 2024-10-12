@@ -15,6 +15,7 @@ import ProductA from './components/Products/ProductA';
 import CharCounter from './components/CharCounter/CharCounter';
 import CryptocurrencyList from './components/CryptocurrencyList/CryptocurrencyList';
 import SlideShow from './components/SlideShow/SlideShow';
+import TestAPI from './components/TestAPI/TestAPI';
 
 function App() {
 const [activeTheme, setActiveTheme] = useState('green');
@@ -34,6 +35,7 @@ const [activeTheme, setActiveTheme] = useState('green');
       <Route path='/charcounter' element={<Layout><CharCounter /></Layout>}/>
       <Route path='/cryptocurrency' element={<Layout><CryptocurrencyList /></Layout>}/>
       <Route path='/slideshow' element={<Layout><SlideShow /></Layout>}/>
+      <Route path='/test-api' element={<Layout><TestAPI /></Layout>}/>
       </Routes>
       </BrowserRouter>
       </div>

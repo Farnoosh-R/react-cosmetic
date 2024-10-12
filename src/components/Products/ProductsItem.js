@@ -38,7 +38,7 @@ useEffect(() => {
         
         <div className="col-md-3 ProductsItem" ref={productItemRef} key={data.id}>
         <div className="box mb-4">
-        <img src={data.ads} />
+        <img src={data.imgsrc} />
         <Link to={`/products/${data.id}`} className="product-title">{data.title}</Link>
         <p className="product-title theme-color">{data.price}</p>
         <Button handleClick={handleAdded} btnStyle={{backgroundColor: themeContextValue.theme.color, border: themeContextValue.theme.color}} btnContent={state.added ? <div className="d-flex"><MdShoppingCart /><div>Add to Cart</div></div> : <div className="d-flex"><MdRemoveShoppingCart /><div>Remove from Cart</div></div>}/>
